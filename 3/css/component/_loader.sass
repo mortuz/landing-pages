@@ -1,0 +1,29 @@
+#loading
+    width: 100vw
+    height: 100vh
+    position: fixed
+    z-index: 10000
+    background-color: #fff
+    #loader
+        position: absolute
+        width: $size
+        height: $size
+        left: 50%
+        top: 50%
+        margin-top: -($size / 2)
+        margin-left: -($size / 2)
+        +rotate(165deg)
+        &:before, &:after
+            content: ''
+            position: absolute
+            top: 50%
+            left: 50%
+            display: block
+            width: $thickness
+            height: $thickness
+            border-radius: $thickness / 2
+            +transform(-50%, -50%)
+        &:before
+            +animation(before 2s infinite)
+        &:after
+            +animation(after 2s infinite)

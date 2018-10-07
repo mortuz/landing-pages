@@ -1,0 +1,220 @@
+// variables
+
+$color:#28194D;
+$words:6;
+$body:'Ubuntu',sans-serif;
+$headings:'Varela Round',sans-serif;
+
+
+// font + animations
+
+@import url(https://fonts.googleapis.com/css?family=Varela+Round|Ubuntu:400,700,400italic,700italic);
+
+@-webkit-keyframes rotate_cycle {
+  0% {opacity:0;}
+  2% {
+    opacity:0;
+    -webkit-transform:translateY(-30px);
+    transform: translateY(-30px);
+  }
+  5% {
+    opacity: 1;
+    -webkit-transform: translateY(0px);
+    transform: translateY(0px);
+  }
+  17% {
+    opacity:1;
+    -webkit-transform:translateY(0px);
+    transform:translateY(0px);
+  }
+  20% {
+    opacity:0; 
+    -webkit-transform:translateY(30px); 
+    transform:translateY(30px); 
+  }
+	80% {opacity:0;}
+  100% {opacity:0;}
+}
+
+@-webkit-keyframes self-draw {
+  0%   {stroke-dasharray: 0 60%}
+  50%  {stroke-dasharray: 100% 10%}
+  100% {stroke-dasharray: 0 60%}
+}	
+
+// basics 
+
+* {padding:0;margin:0;outline:0;box-sizing:border-box;}
+
+html,body {width:100%;height:100%;}
+
+// the good stuff
+
+body {
+  font-family:$body;
+  color:#222;
+  background:$color;
+}
+
+.index body {
+  display:flex;
+  justify-content:center;
+  flex-direction:column;
+  align-items:flex-start;
+  
+  nav {
+    padding:0.3em;
+  }
+}
+
+
+// HEADER
+
+header {
+  font-family:$headings;
+  color:#fff;
+  width:100%;
+  height:90%;
+  background:$color;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  //overflow:hidden;
+  
+  svg {
+    width:60%;
+    display:flex;
+    margin-left:-36%;
+    padding-top:1.5em;
+    //margin-top:1%;
+    margin-right:-30%;
+    padding-right:1em;
+    z-index:400;
+    
+    .drawable * {
+      stroke:rgba(255,255,255,0.1);
+      stroke-width:0.25em;
+      //stroke-dasharray: 0.5% 20%;
+      opacity:0;
+    }
+  }
+  
+  &:hover {
+      
+    svg .drawable * {
+      opacity:1;
+      stroke:rgba(255,255,255,0.2);
+      stroke-width:0.25em;
+      -webkit-animation:self-draw 8s ease-out;
+      -webkit-animation-fill-mode:forwards;
+    }
+  }
+
+  
+  h1 {
+    display:none;
+    float:left;
+    font-size:2em;
+    height:1em;
+  }
+  
+  span {
+    height:1em;
+    font-size:2em;
+    display:flex;
+    margin-left:1.2em;
+  }
+  
+  ul {
+    display:flex;
+    height:2em;
+    
+    li {
+      font-size:2em;
+      list-style-type:none;
+      position:absolute;
+      text-indent:0.5em;
+      opacity:0;
+      overflow:hidden;
+      -webkit-animation:
+        rotate_cycle 
+        #{$words*3}s 
+        ease-out 
+        infinite;
+    }
+    
+  }
+  
+}
+
+// NAVIGATION
+
+nav {
+  font-family:$headings;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  flex-wrap:wrap;
+  width:100%;
+  padding:1em 3em;
+  z-index:1000;
+  //background:#dedede;
+  background:rgba(0,0,0,0.1);
+  
+  a {
+    //text-transform:uppercase;
+    text-decoration:none;
+    font-size:1.1em;
+    margin:0.5em;
+    padding:0.5em;
+    //color:#888;
+    color:rgba(255,255,255,0.5);
+    transition:all 200ms ease-out;
+    border-radius:3px;
+    flex-grow:0;
+    
+    &:hover {
+      color:#fff;
+      padding:0.5em 1em;
+      transition:all 200ms ease-out;
+      background:rgba(255,255,255,0.1);
+    }
+    
+    
+    
+    
+  }
+  
+}
+
+
+// things and stuff ?
+
+@for $n from 0 to $words {
+  header ul li:nth-child(#{$n}) {
+    -webkit-animation-delay:#{(3*$n)}s;
+  }
+}   
+
+@media (max-width:730px) {
+  .index body {
+    header {height:70%;}
+    nav {height:30%;padding:1.5em 3em 1.5em 3em;}
+  }
+  header {
+    height:40%;
+    justify-content:flex-start;    
+    
+    h1 {display:flex;padding-left:2em;}
+    span {margin-left:0.5em;}
+    svg {display:none;}
+  }
+  nav {
+    justify-content:flex-start;
+    //height:30%;
+    
+    a {
+      margin:0.3em 0.6em;
+    }
+  }
+}

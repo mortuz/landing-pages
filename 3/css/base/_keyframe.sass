@@ -1,0 +1,54 @@
+/* -------------------------------- */
+/*             Key Frames           */
+/* -------------------------------- */
++keyframes(pulse)
+    0%
+        +scale(1)
+        opacity: 0
+    50%
+        +scale(1.5)
+        opacity: .5
+    100%
+        +scale(2)
+        opacity: 0
+
+/* ------- Loading Keyframes -------*/
++keyframes(before)
+    0%
+        width: $thickness
+        box-shadow: $lat (-$offset) $color1, ((-$lat)) $offset $color3
+    35%
+        width: $size
+        box-shadow: 0 (-$offset) $color1, 0 $offset $color3
+    70%
+        width: $thickness
+        box-shadow: (-$lat) (-$offset) $color1, $lat $offset $color3
+    100%
+        box-shadow: $lat (-$offset) $color1, (-$lat) $offset $color3
+                
++keyframes(after)
+    0%
+        height: $thickness
+        box-shadow: $offset $lat $color2, (-$offset) (-$lat) $color4
+    35%
+        height: $size
+        box-shadow: $offset 0 $color2, (-$offset) 0 $color4
+    70%
+        height: $thickness
+        box-shadow: $offset (-$lat) $color2, (-$offset) $lat $color4
+    100%
+        box-shadow: $offset $lat $color2, (-$offset) (-$lat) $color4
+    
++keyframes(wave)
+    0%
+        margin-left: 0
+    100%
+        margin-left: -1600px
+    
++keyframes(swell)
+    0%, 100%
+        -webkit-transform: translate3d(0, -25px, 0)
+        transform: translate3d(0, -25px, 0)
+    50%
+        -webkit-transform: translate3d(0, 5px, 0)
+        transform: translate3d(0, 5px, 0)

@@ -1,0 +1,93 @@
+/* -------------------------------- */
+/*            Navigation            */
+/* -------------------------------- */
+.navbar-toggler
+    padding: 0
+    width: 1.5rem
+    height: 1rem
+.navbar
+    .nb-two
+        position: relative
+        width: 124px
+        height: 50px
+        img
+            position: absolute
+            top: 50%
+            margin-top: -20px            
+            +transition(all .3s ease)
+            &.logo-scroll
+                opacity: 0
+            
+    .navbar-toggler
+        border-color: transparent
+        position: relative
+        z-index: 10
+    .navbar-toggler-icon        
+        background-image: none
+        height: 2px
+        width: 1.5rem
+        margin-top: -0.6rem
+        background-color: #000
+        &:before, &:after
+            @extend %pos-content
+            height: 2px
+            left: .35rem
+            background-color: #000
+        &:before
+            top: 0
+            width: .8rem
+        &:after
+            width: .8rem
+            bottom: 0
+    &.txt-color
+        .navbar-toggler-icon
+            background-color: #fff
+            &:before, &:after
+                background-color: #fff
+.navbar-nav
+    @media #{$tablet}
+        margin-top: 1rem
+    .nav-item
+        .nav-link
+            position: relative
+            text-transform: uppercase
+            font-size: 0.875rem
+            color: #000
+            @media #{$tablet}
+                margin-bottom: 1rem
+                display: inline-block
+            &:after
+                @extend %pos-content
+                left: 45%
+                bottom: -1rem
+                width: 10px
+                height: 2px
+                visibility: hidden
+                +transition(all .2s ease)
+                @media #{$tablet}
+                    display: none
+            &.active
+                color: #fff
+                &:after
+                    background: #fff
+                    visibility: visible
+                    width: 100%
+                    left: 0
+            &:hover
+                color: #000
+.fill-bg
+    &.navbar-light
+        .navbar-toggler-icon
+            background: #fff
+            &:before, &:after
+                background: #fff
+.txt-color .navbar-nav .nav-item .nav-link,
+.header-shadow .navbar-nav .nav-item .nav-link
+    color: #fff
+.header-shadow .navbar .navbar-toggler-icon
+    @media #{$tablet}
+        background-color: #fff
+    &:before, &:after
+        @media #{$tablet}
+            background-color: #fff
+    

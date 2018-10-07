@@ -1,0 +1,139 @@
+=transform($tfX: 0, $tfY: 0)
+    -webkit-transform: translate($tfX, $tfY)
+    -moz-transform: translate($tfX, $tfY)
+    -ms-transform: translate($tfX, $tfY)
+    -o-transform: translate($tfX, $tfY)
+    transform: translate($tfX, $tfY)
+
+=border-radius-all($string)
+    -webkit-border-radius: $string
+    -moz-border-radius: $string
+    -ms-border-radius: $string
+    -o-border-radius: $string
+    border-radius: $string
+    
+=border-radius($tl, $tr, $br, $bl)
+    -webkit-border-top-left-radius: $tl
+    -ms-border-top-left-radius: $tl
+    -o-border-top-left-radius: $tl
+    border-top-left-radius: $tl
+    -webkit-border-top-right-radius: $tr
+    -ms-border-top-right-radius: $tr
+    -o-border-top-right-radius: $tr
+    border-top-right-radius: $tr
+    -webkit-border-bottom-left-radius: $bl
+    -ms-border-bottom-left-radius: $bl
+    -o-border-bottom-left-radius: $bl
+    border-bottom-left-radius: $bl
+    -webkit-border-bottom-right-radius: $br
+    -ms-border-bottom-right-radius: $br
+    -o-border-bottom-right-radius: $br
+    border-bottom-right-radius: $br
+
+=transition($string)
+    -webkit-transition: $string
+    -moz-transition: $string
+    -ms-transition: $string
+    -o-transition: $string
+    transition: $string
+
+=box-shadow($x, $y, $b, $i, $color)
+    -webkit-box-shadow: $x $y $b $i $color
+    -moz-box-shadow: $x $y $b $i $color
+    -ms-box-shadow: $x $y $b $i $color
+    -o-box-shadow: $x $y $b $i $color
+    box-shadow: $x $y $b $i $color
+    
+=rotate($deg)
+    -webkit-transform: rotate($deg)
+    -moz-transform: rotate($deg)
+    -ms-transform: rotate($deg)
+    -o-transform: rotate($deg)
+    transform: rotate($deg)
+    
+=scale($scale)
+    -webkit-transform: scale($scale)
+    -moz-transform: scale($scale)
+    -ms-transform: scale($scale)
+    -o-transform: scale($scale)
+    transform: scale($scale)
+    
+=scale-rotate($scale, $deg)
+    -webkit-transform: scale($scale) rotate($deg)
+    -moz-transform: scale($scale) rotate($deg)
+    -ms-transform: scale($scale) rotate($deg)
+    -o-transform: scale($scale) rotate($deg)
+    transform: scale($scale) rotate($deg)
+    
+=animation($arguments)
+    -webkit-animation: $arguments
+    -moz-animation: $arguments
+    -o-animation: $arguments
+    animation: $arguments
+    
+=animation-two($arguments-one, $arguments-two)
+    -webkit-animation: $arguments-one, $arguments-two
+    -moz-animation: $arguments-one, $arguments-two
+    -o-animation: $arguments-one, $arguments-two
+    animation: $arguments-one, $arguments-two
+    
+
+=linear-gradient-horizontal($left, $right)
+    background: $left
+    background: -moz-linear-gradient(top,  $left 0%, $right 100%)
+    background: -webkit-gradient(left top, left bottom, color-stop(0%, $left), color-stop(100%, $right))
+    background: -webkit-linear-gradient(top,  $left 0%, $right 100%)
+    background: -o-linear-gradient(top,  $left 0%, $right 100%)
+    background: -ms-linear-gradient(top,  $left 0%, $right 100%)
+    background: linear-gradient(to bottom,  $left 0%, $right 100%)
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ffffff', endColorstr='#000000', GradientType=0 )
+
+=linear-gradient-vertical($top, $bottom)
+    background: $top
+    background: -moz-linear-gradient(left,  $top 0%, $bottom 100%)
+    background: -webkit-gradient(left top, right top, color-stop(0%,$top), color-stop(100%,$bottom))
+    background: -webkit-linear-gradient(left,  $top 0%,$bottom 100%)
+    background: -o-linear-gradient(left,  $top 0%,$bottom 100%)
+    background: -ms-linear-gradient(left,  $top 0%,$bottom 100%)
+    background: linear-gradient(to right,  $top 0%,$bottom 100%)
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ffffff', endColorstr='#000000', GradientType=0 )
+    
+=linear-gradient-horizontal-lt-rb($top, $bottom)
+    background: $top
+    background: -moz-linear-gradient(-45deg,  $top 0%, $bottom 100%)
+    background: -webkit-gradient(left top, right bottom, color-stop(0%,$top), color-stop(100%,$bottom))
+    background: -webkit-linear-gradient(-45deg,  $top 0%,$bottom 100%)
+    background: -o-linear-gradient(-45deg,  $top 0%,$bottom 100%)
+    background: -ms-linear-gradient(-45deg,  $top 0%,$bottom 100%)
+    background: linear-gradient(135deg,  $top 0%,$bottom 100%)
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ffffff', endColorstr='#000000', GradientType=0 )
+    
+=linear-gradient-horizontal-rt-lb($top, $bottom)
+    background: $top
+    background: -moz-linear-gradient(45deg,  $top 0%, $bottom 100%)
+    background: -webkit-gradient(left bottom, right top, color-stop(0%,$top), color-stop(100%,$bottom))
+    background: -webkit-linear-gradient(45deg,  $top 0%,$bottom 100%)
+    background: -o-linear-gradient(45deg,  $top 0%,$bottom 100%)
+    background: -ms-linear-gradient(45deg,  $top 0%,$bottom 100%)
+    background: linear-gradient(45deg,  $top 0%,$bottom 100%)
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ffffff', endColorstr='#000000', GradientType=0 )
+
+=keyframes($name)
+    @-webkit-keyframes #{$name}
+        @content
+    @-moz-keyframes #{$name}
+        @content
+    @-ms-keyframes #{$name}
+        @content
+    @keyframes #{$name}
+        @content
+
+=placeholder
+    &::-webkit-input-placeholder
+        @content
+    &:-moz-placeholder
+        @content
+    &::-moz-placeholder
+        @content
+    &:-ms-input-placeholder
+        @content
